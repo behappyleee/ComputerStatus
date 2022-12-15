@@ -18,4 +18,11 @@ public class CpuStatusController {
 	}
 	
 	
+	public static void main(String[] args) {
+		System.out.println("사용 OS 확인 " + System.getProperties());
+		System.out.println("OS NAME : " + System.getProperty("os.name"));
+	}
+	
+	
+	
 }
