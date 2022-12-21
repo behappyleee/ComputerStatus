@@ -14,6 +14,7 @@ import com.computer.backend.status.dto.ComputerBasicDTO;
 import com.computer.backend.status.service.ComputerInfoService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @CrossOrigin
@@ -36,7 +37,8 @@ public class ComputerInfoController {
 	
 	@RequestMapping("/getTimeFromBack")
 	@ResponseBody
-	public LocalTime localTime() {
+	public LocalTime localTime(HttpServletResponse res) {
+		res.setHeader("Access-Control-Allow-Origin", "*");
 		return LocalTime.now();
 	}
 	

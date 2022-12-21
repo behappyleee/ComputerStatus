@@ -11,6 +11,7 @@ import com.computer.backend.status.dto.ComputerBasicDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import com.sun.management.OperatingSystemMXBean;
 import java.lang.management.ManagementFactory;
+import java.time.LocalTime;
 
 @Service
 public class ComputerInfoService {
@@ -33,9 +34,10 @@ public class ComputerInfoService {
 		}
 		
 		dto.setOs((String)systemProperties.get("os.name"));						// OS 정보
-		dto.setCpu((String)systemProperties.get("sun.cpu.isalist"));					// CPU 정보
-		dto.setUserCountry((String)systemProperties.get("user.country"));			// USER 국가 정보
-		dto.setUserTimeZone((String)systemProperties.get("user.timezone"));          // USER TimeZone 정보
+		dto.setCpu((String)systemProperties.get("sun.cpu.isalist"));			// CPU 정보
+		dto.setUserCountry((String)systemProperties.get("user.country"));		// USER 국가 정보
+		dto.setUserTimeZone((String)systemProperties.get("user.timezone"));    	// USER TimeZone 정보
+		dto.setCurrentTime(LocalTime.now());									// 사용자 현재 시간	
 		
 		// RETURN DTO 정보
 		logger.debug("DTO RETURN DATA : {} " , dto.toString());
